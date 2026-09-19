@@ -12,6 +12,6 @@ services:
       - key: ADMIN_RESET_TOKEN
         generateValue: true
       - key: ALLOWED_HOSTS
-        value: "*.onrender.com,localhost,127.0.0.1"
+        value: "*"
       - key: CORS_ALLOWED_ORIGINS
         sync: false
