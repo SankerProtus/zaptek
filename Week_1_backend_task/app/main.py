@@ -19,7 +19,6 @@ import uuid
 from fastapi import Depends, FastAPI, Request, status
 from fastapi.exceptions import RequestValidationError
 from fastapi.middleware.cors import CORSMiddleware
-from starlette.middleware.trustedhost import TrustedHostMiddleware
 from fastapi.responses import JSONResponse
 from starlette.exceptions import HTTPException as StarletteHTTPException
 
@@ -49,7 +48,6 @@ app = FastAPI(
     openapi_url="/openapi.json" if settings.docs_enabled else None,
 )
 
-app.add_middleware(TrustedHostMiddleware, allowed_hosts=list(settings.allowed_hosts))
 app.add_middleware(
     CORSMiddleware,
     allow_origins=list(settings.allowed_origins),
